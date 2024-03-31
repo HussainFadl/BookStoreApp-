@@ -8,15 +8,22 @@ class MyTTF extends StatelessWidget {
 
   var suffixIcon;
 
+  final void Function(String)? onChanged; // Make onChanged nullable
+
+  var initialValue;
+
   MyTTF(
       {super.key,
       required this.prefixIcon,
       required this.labelText,
-      this.suffixIcon});
+      this.suffixIcon,
+        this.initialValue,
+       this.onChanged, });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      initialValue: initialValue,
         decoration: InputDecoration(
             border: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(5))),
@@ -25,6 +32,7 @@ class MyTTF extends StatelessWidget {
             suffixIcon: suffixIcon,
             iconColor: AppColors.primaryColor,
             fillColor: AppColors.primaryColor,
-            labelStyle: TextStyle(color: AppColors.primaryColor)));
+            labelStyle: TextStyle(color: AppColors.primaryColor)),
+    onChanged: onChanged,);
   }
 }

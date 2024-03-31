@@ -6,8 +6,23 @@ import 'package:bookstore/Util/custom_button.dart';
 import 'package:bookstore/Util/text_styles.dart';
 import 'package:flutter/material.dart';
 
-class LogInView extends StatelessWidget {
+import 'Networking/web_service.dart';
+
+
+class LogInView extends StatefulWidget {
   const LogInView({super.key});
+
+  @override
+  _LogInViewState createState() => _LogInViewState();
+}
+
+
+class _LogInViewState extends State<LogInView> {
+
+  String email = '';
+  String password = '';
+  bool isLoading = false; // Track loading state
+  final bookService = BookService();
 
   @override
   Widget build(BuildContext context) {
@@ -61,14 +76,20 @@ class LogInView extends StatelessWidget {
                     child: const Text('Register Now!'))
               ],
             ),
-            MyTTF(
+            MyTTF(initialValue: "husfadl2000@hotmail.com",
                 prefixIcon: Icon(
                   Icons.email,
                   color: AppColors.primaryColor,
                 ),
-                labelText: 'Email'),
+                labelText: 'Email',
+                onChanged: (value) {
+                  setState(() {
+                    email = value;
+                  });
+                }),
             const SizedBox(height: 20),
             MyTTF(
+              initialValue: "123456789",
               prefixIcon: Icon(
                 Icons.lock,
                 color: AppColors.primaryColor,
@@ -78,12 +99,44 @@ class LogInView extends StatelessWidget {
                 Icons.remove_red_eye,
                 color: AppColors.primaryColor,
               ),
+              onChanged: (value) {
+                setState(() {
+                  password = value;
+                });
+              },
             ),
             const SizedBox(height: 20),
-            CustomButton(onPressed: () {}, text: 'LogIn')
+            isLoading
+                ? const CircularProgressIndicator()
+                : CustomButton(onPressed: () {
+                  _login();
+            }, text: 'LogIn')
           ],
         ),
       ),
     );
   }
+
+  void _login() async {
+    setState(() {
+      isLoading = true; // Start loading
+    });
+
+    final loginResponse = await bookService.login(email, password);
+
+    if (loginResponse != null) {
+      // Login successful
+      print('Login successful: ${loginResponse.data.token}');
+      // Handle successful login here
+    } else {
+      // Login failed
+      print('Login failed');
+      // Handle failed login here
+    }
+
+    setState(() {
+      isLoading = false; // Stop loading
+    });
+  }
+
 }

@@ -39,5 +39,6 @@ class BookService {
 
   Future<LoginResponse?> register() async {
     // Hussain will add registeration http request here
+    
   }
 }

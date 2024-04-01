@@ -14,9 +14,10 @@ class BookService {
 
       print('Email: $email');
       print('Password: $password');
+
       final response = await http.post(
-        Uri.parse("$baseUrl$login"),
-        headers: {'Content-Type': 'application/json'},
+        Uri.parse('$baseUrl$loginEndpoint'),
+        headers: {'Content-Type': 'application/json',},
         body: jsonEncode({'email': email, 'password': password}),
       );
 
@@ -25,7 +26,8 @@ class BookService {
         return LoginResponse.fromJson(jsonDecode(response.body));
       } else {
         // Handle server errors or invalid responses
-        print('Server error: ${response.body}');
+        print('Server status code: ${response.body}');
+        print('Server error: ${response.statusCode}');
         return null;
       }
     } catch (e) {

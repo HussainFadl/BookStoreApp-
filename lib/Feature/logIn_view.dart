@@ -19,8 +19,8 @@ class LogInView extends StatefulWidget {
 
 class _LogInViewState extends State<LogInView> {
 
-  String email = '';
-  String password = '';
+  String email = 'husfadl2000@hotmail.com';
+  String password = '123456789';
   bool isLoading = false; // Track loading state
   final bookService = BookService();
 
@@ -76,7 +76,7 @@ class _LogInViewState extends State<LogInView> {
                     child: const Text('Register Now!'))
               ],
             ),
-            MyTTF(initialValue: "husfadl2000@hotmail.com",
+            MyTTF(initialValue: email,
                 prefixIcon: Icon(
                   Icons.email,
                   color: AppColors.primaryColor,
@@ -89,7 +89,7 @@ class _LogInViewState extends State<LogInView> {
                 }),
             const SizedBox(height: 20),
             MyTTF(
-              initialValue: "123456789",
+              initialValue: password,
               prefixIcon: Icon(
                 Icons.lock,
                 color: AppColors.primaryColor,

@@ -56,7 +56,7 @@ class BookService {
     try {
       // Send POST request
       http.Response response = await http.post(
-        Uri.parse(baseUrl),
+        Uri.parse('$baseUrl$registerEndpoint'),
         headers: <String, String>{
           'Content-Type': 'application/json; charset=UTF-8',
         },

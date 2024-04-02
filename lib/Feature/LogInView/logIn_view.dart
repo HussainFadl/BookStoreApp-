@@ -1,12 +1,12 @@
-import 'package:bookstore/Feature/register_view.dart';
-import 'package:bookstore/Util/app_colors.dart';
-import 'package:bookstore/Util/app_functions.dart';
-import 'package:bookstore/Util/custom_TFF.dart';
-import 'package:bookstore/Util/custom_button.dart';
-import 'package:bookstore/Util/text_styles.dart';
+import 'package:bookstore/Feature/RegisterView/register_view.dart';
+import 'package:bookstore/Core/Util/app_colors.dart';
+import 'package:bookstore/Core/Util/app_functions.dart';
+import 'package:bookstore/Core/Util/custom_TFF.dart';
+import 'package:bookstore/Core/Util/custom_button.dart';
+import 'package:bookstore/Core/Util/text_styles.dart';
 import 'package:flutter/material.dart';
 
-import 'Networking/web_service.dart';
+import '../../Networking/web_service.dart';
 
 class LogInView extends StatefulWidget {
   const LogInView({super.key});

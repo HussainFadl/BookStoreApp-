@@ -1,5 +1,5 @@
-import 'package:bookstore/Feature/register_view.dart';
-import 'package:bookstore/Util/app_functions.dart';
+import 'package:bookstore/Feature/RegisterView/register_view.dart';
+import 'package:bookstore/Core/Util/app_functions.dart';
 import 'package:flutter/material.dart';
 
 class SplashView extends StatefulWidget {

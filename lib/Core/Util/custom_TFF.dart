@@ -1,4 +1,4 @@
-import 'package:bookstore/Util/app_colors.dart';
+import 'package:bookstore/Core/Util/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class MyTTF extends StatelessWidget {

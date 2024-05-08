@@ -12,6 +12,8 @@ dependencies:
   google_fonts: 6.1.0
   lottie: ^3.1.0
   http: ^1.0.0
+  carousel_slider: ^4.2.1
+  card_swiper: ^3.0.1
 
 dev_dependencies:
   flutter_test:

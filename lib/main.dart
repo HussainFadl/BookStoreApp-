@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'Feature/Home/splash_view.dart';
+import 'splash_view.dart';
 
 void main() {
   runApp(const MainApp());
